@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 import './App.css';
 import Bouton from '../Bouton/Bouton';
 import ICongrats from '../ICongrats';
+import BoutonEffect from '../BoutonEffect/BoutonEffect';
+import BoutonReducer from '../BoutonReducer/BoutonReducer';
 
 function App() {
   // let text = 'Hello World'; // immuable, c'est une constante bien que let
@@ -30,11 +32,9 @@ function App() {
   return (
     <>
       <h1 className={titlecolor}>{texte}</h1>
-
       <h2 id="subtitle1" style={{ backgroundColor: subtitleColor }}>
         {congrats.text} by {congrats.auteur}
       </h2>
-
       <button
         onClick={() => {
           setTexte('Hello World');
@@ -42,7 +42,6 @@ function App() {
       >
         Change Title
       </button>
-
       <button
         onClick={() => {
           setCongrats({ ...congrats, text: 'very good' });
@@ -51,17 +50,14 @@ function App() {
         Change Congrats
       </button>
       <br />
-
       <input
         onChange={(event) => {
           changeCongrats(event.target.value);
         }}
       />
       <br />
-
       <input type="text" ref={myInput} />
       <br />
-
       <button
         onClick={() => {
           changeCongrats(
@@ -71,9 +67,10 @@ function App() {
       >
         Change Congrats
       </button>
-
       {/* Custom Button */}
-      <Bouton texte="Bienvenue" fois={2} />
+      <Bouton onClique={() => alert(texte)} texte="Bienvenue" />
+      <BoutonEffect /> <br />
+      <BoutonReducer />
     </>
   );
 }

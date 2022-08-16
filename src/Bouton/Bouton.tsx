@@ -1,14 +1,15 @@
-import './Bouton.css';
-
+import btnstyle from './btnstyle.module.css';
 interface BoutonProp {
   texte: string;
-  fois: number;
+  fois?: number;
+  onClique: () => void;
 }
 
 const Bouton = (props: BoutonProp) => {
+  const f = props.fois ?? 1;
   return (
-    <button>
-      {props.texte} {props.fois} fois
+    <button className={btnstyle.border} onClick={props.onClique}>
+      {props.texte} {f} fois
     </button>
   );
 };
