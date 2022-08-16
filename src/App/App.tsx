@@ -70,6 +70,7 @@ function App() {
       {/* Custom Button */}
       <Bouton onClique={() => alert(texte)} texte="Bienvenue" />
       <BoutonEffect /> <br />
+      <BoutonReducer initialValue={10} />
       <BoutonReducer />
     </>
   );

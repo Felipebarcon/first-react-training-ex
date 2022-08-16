@@ -15,8 +15,12 @@ enum ActionType {
   reset,
 }
 
-const BoutonReducer = () => {
-  const defaultCompteur = { compteur: 0 } as IState;
+interface PropsValue {
+  initialValue?: number;
+}
+
+const BoutonReducer = (props: PropsValue) => {
+  const defaultCompteur = { compteur: props.initialValue ?? 0 };
 
   function choixAction(state: IState, action: IAction) {
     switch (action.type) {
@@ -32,7 +36,10 @@ const BoutonReducer = () => {
   }
 
   // Hook reducer
-  const [state, dispatch] = useReducer(choixAction, defaultCompteur);
+  const [state, dispatch] = useReducer(choixAction, defaultCompteur, () => {
+    defaultCompteur.compteur = props.initialValue ?? 0;
+    return defaultCompteur;
+  });
 
   return (
     <>
@@ -41,17 +48,15 @@ const BoutonReducer = () => {
       >
         +
       </button>
-      ;
       <button
         onClick={() => dispatch({ type: ActionType.decremente, valeur: 1 })}
       >
         -
       </button>
-      ;
       <button onClick={() => dispatch({ type: ActionType.reset })}>
         Reset
       </button>
-      ;<p>Compteur : {state.compteur}</p>,
+      <p>Compteur : {state.compteur}</p>
     </>
   );
 };
