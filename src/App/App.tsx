@@ -5,6 +5,7 @@ import ICongrats from '../ICongrats';
 import BoutonEffect from '../BoutonEffect/BoutonEffect';
 import BoutonReducer from '../BoutonReducer/BoutonReducer';
 import BoutonCallback from '../BoutonCallback/BoutonCallbakc';
+import BoutonMemo from '../BoutonMemo/BoutonMemo';
 
 function App() {
   // let text = 'Hello World'; // immuable, c'est une constante bien que let
@@ -72,8 +73,12 @@ function App() {
       <Bouton onClique={() => alert(texte)} texte="Bienvenue" />
       <BoutonEffect /> <br />
       <BoutonReducer initialValue={10} />
+      <br />
       <BoutonReducer />
+      <br />
       <BoutonCallback />
+      <br />
+      <BoutonMemo />
     </>
   );
 }
