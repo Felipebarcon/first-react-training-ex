@@ -37,6 +37,10 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
     if (this.validate(name, value)) {
       this.setState({ [name]: value });
     }
+    // setState radio button
+    if (name === 'hf') {
+      this.setState({ hf: value });
+    }
   }
 
   validate(name: string, value: any) {
