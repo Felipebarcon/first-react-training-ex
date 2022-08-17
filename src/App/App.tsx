@@ -7,6 +7,7 @@ import BoutonReducer from '../BoutonReducer/BoutonReducer';
 import BoutonCallback from '../BoutonCallback/BoutonCallbakc';
 import BoutonMemo from '../BoutonMemo/BoutonMemo';
 import Fournisseur from '../Contexte/Fournisseur';
+import LeFormulaire from '../Formulaire/LeFormulaireClasse';
 
 function App() {
   // let text = 'Hello World'; // immuable, c'est une constante bien que let
@@ -83,6 +84,7 @@ function App() {
       <br />
       <Fournisseur />
       <br />
+      <LeFormulaire />
     </>
   );
 }
