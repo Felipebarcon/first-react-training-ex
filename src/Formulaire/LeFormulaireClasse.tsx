@@ -2,10 +2,13 @@ import { Component } from 'react';
 
 interface FormulaireProps {}
 
+type hf = 'Homme' | 'Femme';
+
 // Tous les champs du formulaire
 interface FormulaireState {
   nom?: string;
   age?: number;
+  hf?: hf;
   errors?: {
     nom?: string;
     age?: string;
@@ -22,6 +25,7 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
         nom: '',
         age: '',
       },
+      hf: 'Femme',
     };
     this.changeValue = this.changeValue.bind(this);
     this.submitForm = this.submitForm.bind(this);
@@ -68,9 +72,31 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
   submitForm(event: any) {
     // dont submit the form if there are errors
     if (!this.state.errors!.nom && !this.state.errors!.age) {
-      alert(`Vous avez saisi ${this.state.nom} et ${this.state.age}`);
+      // first option to delete the state errors
+
+      // const newState = { ...this.state };
+      // delete newState.errors;
+
+      // second option to delete the state errors
+      const { errors, ...newstate } = this.state;
+
+      // alert(`Vous avez saisi ${this.state.nom} et ${this.state.age}`);
+      alert(JSON.stringify(newstate));
     }
     event.preventDefault();
+  }
+
+  createDropDownListFrom(name: string, ...tableau: string[]) {
+    return (
+      <select name={name}>
+        <option key=""></option>
+        {tableau.map((h, i) => (
+          <option key={h + i} value={i}>
+            {h}
+          </option>
+        ))}
+      </select>
+    );
   }
 
   render() {
@@ -88,6 +114,34 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
           type="number"
         />
         {this.state.errors!.age}
+        <br />
+        Homme{' '}
+        <input
+          type="radio"
+          name="hf"
+          value="Homme"
+          checked={this.state.hf === 'Homme'}
+          onChange={this.changeValue}
+        />
+        <br />
+        Femme{' '}
+        <input
+          type="radio"
+          name="hf"
+          value="Femme"
+          checked={this.state.hf === 'Femme'}
+          onChange={this.changeValue}
+        />
+        <br />
+        Hobby:{' '}
+        {this.createDropDownListFrom(
+          'Hobby',
+          'Sport',
+          'Cinéma',
+          'Lecture',
+          'Jeux',
+          'Autre'
+        )}
         <br />
         <button type="submit">Send</button>
       </form>
