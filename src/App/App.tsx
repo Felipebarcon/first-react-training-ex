@@ -4,6 +4,7 @@ import Bouton from '../Bouton/Bouton';
 import ICongrats from '../ICongrats';
 import BoutonEffect from '../BoutonEffect/BoutonEffect';
 import BoutonReducer from '../BoutonReducer/BoutonReducer';
+import BoutonCallback from '../BoutonCallback/BoutonCallbakc';
 
 function App() {
   // let text = 'Hello World'; // immuable, c'est une constante bien que let
@@ -72,6 +73,7 @@ function App() {
       <BoutonEffect /> <br />
       <BoutonReducer initialValue={10} />
       <BoutonReducer />
+      <BoutonCallback />
     </>
   );
 }
