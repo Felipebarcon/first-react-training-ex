@@ -6,6 +6,7 @@ interface IListeProps {
 }
 
 const Liste = (props: IListeProps) => {
+    console.log('Liste crée');
   return (
     <>
       Nombre éléments : {props.elements.length} <br />
@@ -17,4 +18,9 @@ const Liste = (props: IListeProps) => {
   );
 };
 
-export default memo(Liste);
+export default memo(Liste,
+    // Si les éléments sont identiques, on ne re-rend pas la liste
+    /*(prevProps, nextProps) => prevProps.elements.toString() === nextProps.elements.toString()*/
+  (prevProps, nextProps) => prevProps.elements === nextProps.elements);
+
+

@@ -9,10 +9,12 @@ interface FormulaireState {
     nom?: string;
     age?: number;
     hf?: hf;
+    hobby?: string;
     errors?: {
         nom?: string;
         age?: string;
     };
+
 }
 
 class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
@@ -25,7 +27,8 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
                 nom: '',
                 age: '',
             },
-            hf: 'Femme',
+            hf: undefined,
+            hobby: "",
         };
         this.changeValue = this.changeValue.bind(this);
         this.submitForm = this.submitForm.bind(this);
@@ -34,13 +37,8 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
     changeValue(event: any) {
         const name = event.target.name;
         const value = event.target.value;
-        if (this.validate(name, value)) {
-            this.setState({ [name]: value });
-        }
-        // setState radio button
-        if (name === 'hf') {
-            this.setState({ hf: value });
-        }
+        this.validate(name, value);
+        this.setState({ [name]: value });
     }
 
     validate(name: string, value: any) {
@@ -93,10 +91,10 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
 
     createDropDownListFrom(name: string, ...tableau: string[]) {
         return (
-            <select name={name}>
+            <select name={name} value={this.state.hobby} onChange={this.changeValue}>
                 <option key=""></option>
                 {tableau.map((h, i) => (
-                    <option key={h + i} value={i}>
+                    <option key={h + i}>
                         {h}
                     </option>
                 ))}
@@ -138,9 +136,9 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
                     onChange={this.changeValue}
                 />
                 <br />
-                Hobby:{' '}
+                Hobby:
                 {this.createDropDownListFrom(
-                    'Hobby',
+                    'hobby',
                     'Sport',
                     'Cinéma',
                     'Lecture',
