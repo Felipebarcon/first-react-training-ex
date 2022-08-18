@@ -1,9 +1,10 @@
 
 const Langues = () => {
-    const langues_possibles =
-        [{name: "Français", code: "fr", lang: "French"},
+    const langues_possibles = [
+        {name: "Français", code: "fr", lang: "French"},
         {name: "English", code: "en", lang: "English"},
-        {name: "Español", code: "es", lang: "Spanish"}];
+        {name: "Español", code: "es", lang: "Spanish"}
+    ];
 
     // set langue from navigator
     function setLangue(event:any) {
