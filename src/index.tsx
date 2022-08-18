@@ -5,6 +5,7 @@ import App from '../src/App/App';
 import reportWebVitals from './reportWebVitals';
 import { IntlProvider } from 'react-intl';
 import traductions from "./traductions";
+import Langues from "./Langues/Langues";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +13,7 @@ const root = ReactDOM.createRoot(
 
 // Traduction
 
-const langue = navigator.language.substring(0, 2);
+const langue:string = localStorage["langue"]?? navigator.language.substring(0, 2);
 let messages = traductions.fr;
 switch (langue) {
     case "en": messages= traductions.en; break;
@@ -20,6 +21,7 @@ switch (langue) {
 }
 root.render(
     <IntlProvider locale={langue} messages={messages}>
+        <Langues></Langues>
       <App />
     </IntlProvider>
 );

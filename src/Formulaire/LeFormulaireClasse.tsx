@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import {FormattedMessage} from "react-intl";
 
 interface FormulaireProps {}
 
@@ -105,11 +106,11 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
     render() {
         return (
             <form onSubmit={this.submitForm}>
-                Nom:{' '}
+               <FormattedMessage id="formulaire.Nom" /> :
                 <input name="nom" value={this.state.nom} onChange={this.changeValue} />{' '}
                 {this.state.errors!.nom}
                 <br />
-                Age:{' '}
+                <FormattedMessage id="formulaire.Age" /> :
                 <input
                     name="age"
                     value={this.state.age}
@@ -118,7 +119,7 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
                 />
                 {this.state.errors!.age}
                 <br />
-                Homme{' '}
+                <FormattedMessage id="formulaire.Homme" /> :
                 <input
                     type="radio"
                     name="hf"
@@ -127,7 +128,7 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
                     onChange={this.changeValue}
                 />
                 <br />
-                Femme{' '}
+                <FormattedMessage id="formulaire.Femme" /> :
                 <input
                     type="radio"
                     name="hf"
@@ -146,7 +147,7 @@ class LeFormulaire extends Component<FormulaireProps, FormulaireState> {
                     'Autre'
                 )}
                 <br />
-                <button type="submit">Send</button>
+                <button type="submit"><FormattedMessage id="formulaire.Submit" /></button>
             </form>
         );
     }

@@ -1,26 +1,26 @@
 const traductions = {
     fr: {
-        'formulaire.nom': 'Nom',
-        'formulaire.age': 'Age',
+        'formulaire.Nom': 'Nom',
+        'formulaire.Age': 'Age',
         'formulaire.Homme': 'Homme',
         'formulaire.Femme': 'Femme',
-        'formulaire.submit': 'Envoyer',
+        'formulaire.Submit': 'Envoyer',
     },
 
     en: {
-        'formulaire.nom': 'Name',
-        'formulaire.age': 'Age',
+        'formulaire.Nom': 'Name',
+        'formulaire.Age': 'Age',
         'formulaire.Homme': 'Male',
         'formulaire.Femme': 'Female',
-        'formulaire.submit': 'Send',
+        'formulaire.Submit': 'Send',
     },
 
     es: {
-        'formulaire.nom': 'Nombre',
-        'formulaire.age': 'Edad',
+        'formulaire.Nom': 'Nombre',
+        'formulaire.Age': 'Edad',
         'formulaire.Homme': 'Hombre',
         'formulaire.Femme': 'Mujer',
-        'formulaire.submit': 'Enviar',
+        'formulaire.Submit': 'Enviar',
     }
 }
 
