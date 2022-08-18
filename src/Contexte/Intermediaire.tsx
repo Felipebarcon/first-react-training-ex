@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import Consommateur from './Consommateur';
-import LeContexte from './LeContexte';
+import { useContext } from "react";
+import Consommateur from "./Consommateur";
+import LeContexte from "./LeContexte";
 
 function Intermediaire() {
   const personne = useContext(LeContexte);
